@@ -1,2 +1,2 @@
 # strapi-next
-run `git push -u origin master` after everything is done
+- Example of using strapi headless CMS with Next.js
