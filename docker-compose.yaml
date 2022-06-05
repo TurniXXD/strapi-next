@@ -1,0 +1,24 @@
+version: '3'
+services:
+  client:
+    command: dev
+    #command: start
+    container_name: ns-client
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+  server:
+    image: strapi/strapi
+    container_name: sn_server
+    volumes:
+      - ./server/app:/srv/app
+    ports:
+      - '1337:1337'
+  database:
+    image: postgres
+    container_name: sn_database
+    env_file:
+      - "docker.env"
+    volumes:
+      - ./server/data:/var/lib/postgresql/data
